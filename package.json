@@ -10,7 +10,7 @@
     "@babel/plugin-proposal-decorators": "7.2.2",
     "mem": "^5.1.1",
     "mobx": "4.3.1",
-    "mobx-react": "5.1.0",
+    "mobx-react": "5.2.8",
     "react": "16.6.1",
     "react-native": "0.57.7",
     "react-native-code-push": "^5.7.0",
