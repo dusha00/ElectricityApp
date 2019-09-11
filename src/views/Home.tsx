@@ -3,7 +3,8 @@ import {
     StyleSheet,
     View,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    NativeModules
 } from 'react-native';
 import { observer, inject } from "mobx-react";
 import { IProps } from '../interface/IProps';
@@ -19,6 +20,13 @@ export default class HomeScreen extends Component<IHomeProps, any> {
     constructor(props: IHomeProps) {
         super(props);
     }
+    rnCallNative(){
+        NativeModules.commModule.rnCallNativeWithPromise("hello native").then(
+            (result:string)=>{
+                console.log(result);
+            }
+        );
+    }
     render() {
         return (
             <View>
@@ -26,6 +34,7 @@ export default class HomeScreen extends Component<IHomeProps, any> {
                     <Text>{this.props.homeService.num}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.props.homeService.plus}><Text>{'Add'}</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.rnCallNative()}><Text>{'React native Call Native'}</Text></TouchableOpacity>
             </View>
         )
     }

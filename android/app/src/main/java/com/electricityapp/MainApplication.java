@@ -2,6 +2,7 @@ package com.electricityapp;
 
 import android.app.Application;
 
+import com.communication.CommPackage;
 import com.facebook.react.ReactApplication;
 import com.microsoft.codepush.react.CodePush;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -14,6 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
+
+  private static  final CommPackage mCommPackage=new CommPackage();
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
@@ -31,7 +34,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new CodePush(BuildConfig.CODEPUSH_KEY, getApplicationContext(), BuildConfig.DEBUG),
-            new RNGestureHandlerPackage()
+            new RNGestureHandlerPackage(),
+              mCommPackage
       );
     }
 
@@ -50,5 +54,9 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+  }
+
+  public static CommPackage getReactPackage(){
+    return mCommPackage;
   }
 }
