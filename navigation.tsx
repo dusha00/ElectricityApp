@@ -9,11 +9,11 @@ import {
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import HomeScreen from './src/views/Home'
-import CartScreen from './src/views/Cart'
-import CategoryScreen from './src/views/Category'
-import ItemDetailScreen from './src/views/ItemDetail'
-import MineScreen from './src/views/Mine'
+import HomeScreen from './src/views/Home/Home'
+import CartScreen from './src/views/Cart/Cart'
+import CategoryScreen from './src/views/Category/Category'
+import ItemDetailScreen from './src/views/ItemDetail/ItemDetail'
+import MineScreen from './src/views/Mine/Mine'
 import TabBarItem from './src/common/TabBarItem'
 import theme from './src/common/theme'
 
