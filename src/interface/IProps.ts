@@ -1,5 +1,5 @@
 export interface IProps {
-    navigation: INavigation
+    navigation?: INavigation
     
 }
 export interface INavigation {

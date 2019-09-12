@@ -15,6 +15,7 @@
     "react-native": "0.57.7",
     "react-native-code-push": "^5.7.0",
     "react-native-gesture-handler": "1.0.12",
+    "react-native-swiper": "^1.5.14",
     "react-navigation": "3.0.7"
   },
   "devDependencies": {
