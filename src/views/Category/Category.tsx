@@ -1,12 +1,64 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import PropTypes from 'prop-types';
+import theme from '../../common/theme';
+import CategoryListView from './CategoryListView';
 
-export default class CategoryScreen extends Component {
-    render() {
-        return (<View></View>)
-    }
+import catetgoryGoodsData from '../../mock/catetgoryGoods';
+import { IProps } from '../../interface/IProps';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#ffffff'
+  },
+  tabBarText: {
+    fontSize: 14,
+    marginTop: 13
+  },
+  tabBarUnderline: {
+    backgroundColor: theme.color
+  }
+});
+
+interface ICategoryProps extends IProps {
+    itemDatas: Array<any>,
+}
+
+export default class CategoryScreen extends Component<ICategoryProps,any> {
+  static propTypes = {
+    navigation: PropTypes.object.isRequired
+  }
+
+  static navigationOptions = {
+    title: '分类',
+    headerTitleStyle: {
+      alignSelf: 'center',
+      fontSize: 15,
+      color: theme.fontColor
+    },
+    headerStyle: { height: 38, backgroundColor: theme.color }
+  };
+
+  render() {
+    const { navigation } = this.props;
+    return (
+      <ScrollableTabView
+        style={styles.container}
+        tabBarBackgroundColor="white"
+        tabBarActiveTextColor={theme.color}
+        tabBarTextStyle={styles.tabBarText}
+        tabBarUnderlineStyle={styles.tabBarUnderline}
+        initialPage={0}>
+        {catetgoryGoodsData.map(value => (
+          <CategoryListView
+            tabLabel={value.title}
+            key={value.title}
+            itemDatas={value.detail}
+            navigation={navigation}
+          />
+        ))}
+      </ScrollableTabView>
+    );
+  }
 }
