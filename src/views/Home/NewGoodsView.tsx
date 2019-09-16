@@ -12,7 +12,7 @@ const NewGoodsView = ({ itemDatas, navigation }: INewGoodsViewProps) => (
     <View style={styles.container}>
         {itemDatas.map((value, index) => (
             <NewGoodsItem
-                onPress={() => navigation && navigation.navigate('ItemDetail', { value })}
+                onPress={() => navigation && navigation.navigate('ItemDetailScreen', { value })}
                 name={value.name}
                 price={value.price}
                 image={value.image}

@@ -1,3 +1,6 @@
 import { homeService } from './HomeService';
-const service = { homeService };
+import { cartStoreService } from './CartStoreService';
+import { orderStoreService } from './OrderStoreService';
+
+const service = { homeService, cartStoreService, orderStoreService };
 export default service;
